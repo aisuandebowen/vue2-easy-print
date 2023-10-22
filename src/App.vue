@@ -1,17 +1,33 @@
+<!--
+ * @Author: cbw
+ * @Date: 2023-10-22 10:42:01
+ * @LastEditors: cbw
+ * @LastEditTime: 2023-10-22 10:49:49
+ * @Description: 
+-->
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="content">
+      <img alt="Vue logo" src="./assets/logo.png">
+        <HelloWorld msg="Welcome to Your Vue.js App"/>
+    </div>
+    <button @click="onCLick">点击</button>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import {print} from './vue2-easy-print/index'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  methods:{
+    onCLick(){
+      print('content')
+    }
   }
 }
 </script>
