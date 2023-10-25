@@ -1,11 +1,15 @@
 {
-  "name": "vue2",
+  "name": "vue2-easy-print",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aisuandebowen/vue2-easy-print"
   },
   "dependencies": {
     "core-js": "^3.6.5",
