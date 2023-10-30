@@ -27,7 +27,6 @@ export default {
         const footerHeight = footerStyle?.height || "0px";
 
         return (
-          <div>
             <table>
               <thead>
                 <tr>
@@ -55,7 +54,6 @@ export default {
                 </tr>
               </tfoot>
             </table>
-          </div>
         );
       },
       mounted() {

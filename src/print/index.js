@@ -1,3 +1,10 @@
+/*
+ * @Author: cbw
+ * @Date: 2023-10-25 20:14:01
+ * @LastEditors: cbw
+ * @LastEditTime: 2023-10-30 19:15:47
+ * @Description:
+ */
 import Iframe from "./Iframe";
 import PrintFrame from "./print-frame.vue";
 import Vue from "vue";
@@ -7,7 +14,7 @@ import { copyDom } from "./utils";
  * 打印
  * @param {String} id
  */
-export function print(options) {
+export default function print(options) {
   const { id } = options;
   try {
     const Frame = Vue.extend(PrintFrame);

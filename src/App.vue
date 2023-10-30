@@ -26,7 +26,7 @@ export default {
   },
   methods:{
     onCLick(){
-      print('content')
+      print({id:'content'})
     }
   }
 }
