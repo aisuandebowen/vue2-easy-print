@@ -1,23 +1,22 @@
-/*
- * @Author: cbw
- * @Date: 2023-10-22 10:46:52
- * @LastEditors: cbw
- * @LastEditTime: 2023-10-25 19:09:45
- * @Description:
- */
 import Iframe from "./Iframe";
 import PrintFrame from "./print-frame.vue";
 import Vue from "vue";
+import { copyDom } from "./utils";
 
-export default function print(id) {
+/**
+ * 打印
+ * @param {String} id
+ */
+export function print(options) {
+  const { id } = options;
   try {
     const Frame = Vue.extend(PrintFrame);
     const content = document.getElementById(id);
-
     const vm = new Frame({
       propsData: {
+        ...options,
         renderContent() {
-          return content;
+          return copyDom(content);
         },
       },
     });
@@ -26,8 +25,7 @@ export default function print(id) {
     // 初始化iframe
     const iframe = new Iframe();
     document.body.appendChild(iframe.dom);
-    // iframe.print(id, vm.$el); // 打印
-    iframe.print(id, content); // 打印
+    iframe.print(id, vm.$el); // 打印
   } catch (error) {
     console.error(error);
   }
