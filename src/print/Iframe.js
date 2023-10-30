@@ -1,11 +1,10 @@
-import { copyStyle } from "./utils";
-
 export default class Iframe {
   constructor() {
     const iframe = document.createElement("iframe");
     iframe.style.width = "0px";
     iframe.style.display = "none";
     iframe.style.height = "0px";
+
     this.dom = iframe;
   }
 
@@ -27,8 +26,8 @@ export default class Iframe {
     return this.dom;
   }
 
-  // 复制HTML
-  copyHTML(sourceBody) {
+  // 设置新的HTML
+  setHTML(sourceBody) {
     // 复制body
     const node = sourceBody.cloneNode(true);
     // 初始化HTML
@@ -48,11 +47,8 @@ export default class Iframe {
 
   // 打印
   print(id, content) {
-    const iframeHTML = this.copyHTML(content);
+    const iframeHTML = this.setHTML(content);
     this.updateHTML(iframeHTML);
-
-    const doc = this.getDocument();
-    copyStyle(content, doc.getElementById(id)); // 复制样式
     const iframeWindow = this.getContentWindow();
     iframeWindow.focus();
     iframeWindow.print();
